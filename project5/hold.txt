@@ -1,0 +1,103 @@
+import java.util.*;
+public class BurrowsWheeler {
+    // apply Burrows-Wheeler encoding, reading from standard input and writing to standard output
+    public static void encode()
+    {
+    
+        String str = BinaryStdIn.readString();
+        String string_copy = new String(str);
+        //basic steps
+		//given a string of length N, 
+		//consider the N by N matrix in which each row is a different cyclic rotation of
+		//the original text string
+		//sort the rows lexicographically 
+		//the BWT is the right most column in the sorted matrix
+        String[] matrix = new String[str.length()];
+        
+        for(int i = 0; i < matrix.length; i++){
+            matrix[i] = str;
+            str = rotate(str, 1);
+         
+        }
+
+        Arrays.sort(matrix);
+
+        String compressed = "";
+        for(int i = 0; i< matrix.length; i++){
+            compressed+=matrix[i].charAt(matrix[i].length() -1);
+        }
+
+        int index = 0;
+        for(int i = 0; i < matrix.length; i++){
+            if(matrix[i].equals(string_copy)){
+                index = i;
+                break;
+            }
+        }
+        //probably wrong, fix file stuff later
+        BinaryStdOut.write(index);
+        //BinaryStdOut.write('\n');
+      
+        BinaryStdOut.write(compressed);
+        BinaryStdOut.close();
+    }
+
+     public static String rotate(String s, int val){
+        int i = val % s.length();
+
+            return s.substring(i) + s.substring(0,1);
+    }
+
+    // apply Burrows-Wheeler decoding, reading from standard input and writing to standard output
+    public static void decode()
+    {
+        //use frequency of the letters in the string given to construct original
+        //use next array 
+        int first_char = BinaryStdIn.readInt(); //original val location
+    	String str = BinaryStdIn.readString(); //read the string 
+    	
+    	int N = str.length();
+    	int R = 256;//radix value
+
+    	int[] freq = new int[R+1];
+    	char[] aux_array = new char[N]; //put values in original order in this array 
+    	int[] next = new int[N];    //the next array numbers in example 
+
+        //initialize frequency
+    	for(int i = 0;i < N;i++){
+    		freq[str.charAt(i)+1]++;
+        }
+
+        //summation prop
+    	for(int r = 0;r < R;r++){
+    		freq[r+1] += freq[r];
+        }
+
+        //actual reconstruction of word
+    	for(int i = 0;i < N;i++) {
+    		int tmp = freq[str.charAt(i)]++;
+    		aux_array[tmp] = str.charAt(i);
+    		next[tmp] = i;
+    	}
+
+    	//print
+    	for(int i = 0;i < N;i++)
+    	{
+    		BinaryStdOut.write(aux_array[first_char]);
+    		first_char = next[first_char];
+    	}
+
+    	BinaryStdOut.close();
+
+
+    }
+    // if args[0] is '-', apply Burrows-Wheeler encoding
+    // if args[0] is '+', apply Burrows-Wheeler decoding
+    public static void main(String[] args)
+    {
+        if(args[0].equals("-")){ encode();}
+        else if(args[0].equals("+")){ decode();}
+        else throw new IllegalArgumentException("Bad command line argument!");
+
+    }
+}

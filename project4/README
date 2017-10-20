@@ -1,0 +1,25 @@
+#Project 4 Information
+
+Compilation Instructions:
+javac  -classpath .:stdlib.jar Bag.java
+javac  -classpath .:stdlib.jar Stack.java
+javac  -classpath .:stdlib.jar Queue.java
+javac  -classpath .:stdlib.jar BreadthFirstDirectedPaths.java
+javac -Xlint:-unchecked -classpath .:stdlib.jar Digraph.java
+javac -Xlint:-unchecked -classpath .:stdlib.jar Graph.java
+javac  -classpath .:stdlib.jar DepthFirstPaths.java
+
+javac -classpath .:stdlib.jar SAP.java
+javac -classpath .:stdlib.jar Wordnet.java
+
+Note: Compilation of Digraph and Graph files gives terminal output wanings from -Xlint:-unchecked flag. Please ignore, does not affect the functionality of actual program. 
+
+To run the program for SAP, execute: 
+java -classpath .:stdlib.jar SAP digraph1.txt digraph1.input
+
+Alternatively, for Wordnet: 
+java -classpath .:stdlib.jar Wordnet synsets.tx hypernyms.txt wordnet.input 
+
+
+Errors:
+No errors to be noted at this time. 

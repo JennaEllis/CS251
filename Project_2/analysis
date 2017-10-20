@@ -1,0 +1,52 @@
+#!/bin/bash
+
+echo -e "Compiling all classes"
+make test
+
+echo -e "now running test cases"
+echo -e "*****PERFORMING TESTS FOR EACH CASE*****"
+
+echo -e "N = 10"
+java -classpath .:stdlib.jar RandPointGen 10
+java -classpath .:stdlib.jar Brute < points/points10.txt
+java -classpath .:stdlib.jar Fast < points/points10.txt
+
+echo -e "N = 20"
+java -classpath .:stdlib.jar RandPointGen 20
+java -classpath .:stdlib.jar Brute < points/points20.txt
+java -classpath .:stdlib.jar Fast < points/points20.txt
+
+echo -e "N = 50"
+java -classpath .:stdlib.jar RandPointGen 50
+java -classpath .:stdlib.jar Brute < points/points50.txt
+java -classpath .:stdlib.jar Fast < points/points50.txt
+
+echo -e "N = 100"
+java -classpath .:stdlib.jar RandPointGen 100
+java -classpath .:stdlib.jar Brute < points/points100.txt
+java -classpath .:stdlib.jar Fast < points/points100.txt
+
+echo -e "N = 200"
+java -classpath .:stdlib.jar RandPointGen 200
+java -classpath .:stdlib.jar Brute < points/points200.txt
+java -classpath .:stdlib.jar Fast < points/points200.txt
+
+echo -e "N = 400"
+java -classpath .:stdlib.jar RandPointGen 400
+java -classpath .:stdlib.jar Brute < points/points400.txt
+java -classpath .:stdlib.jar Fast < points/points400.txt
+
+echo -e "N = 750"
+java -classpath .:stdlib.jar RandPointGen 750
+java -classpath .:stdlib.jar Brute < points/points750.txt
+java -classpath .:stdlib.jar Fast < points/points750.txt
+
+echo -e "N = 1000"
+java -classpath .:stdlib.jar RandPointGen 1000
+java -classpath .:stdlib.jar Brute < points/points1000.txt
+java -classpath .:stdlib.jar Fast < points/points1000.txt
+
+echo -e "N = 2000"
+java -classpath .:stdlib.jar RandPointGen 2000
+java -classpath .:stdlib.jar Brute < points/points2000.txt
+java -classpath .:stdlib.jar Fast < points/points2000.txt

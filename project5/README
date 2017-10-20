@@ -1,0 +1,28 @@
+Project 5: Data Compression 
+Jenna Ellis
+
+
+Compilation Instructions: 
+To compile both main programs necessary for grading, please execute the following
+    javac -cp .:stdlib.jar BurrowsWheeler.java 
+    javac -cp .:stdlib.jar MoveToFront.java
+The java files are only dependent upon the stdlib.jar library, and make no use of algs4.jar
+
+
+Execution: 
+To run encode for the Burrows Wheeler Transform, please execute the following
+    java -cp .:stdlib.jar BurrowsWheeler - < abra.txt > abra.txt.bwt
+In the above example, abra.txt is used to represent all un-modified files that are to be transformed for compression. 
+The output is piped to a file with the extension .txt.bwt. 
+
+To run decode for Burrows Wheeler, execute the following: 
+    java -cp .:stdlib.jar BurrowsWheeler + <abra.txt.bwt > abra.txt
+In which, abra.txt.bwt must be a previously transformed file that was obtained from encode of BWT. 
+
+
+To run encode and decode for the Move To Front Transform, execute the following: 
+    java -cp .:stdlib.jar MoveToFront - <abra.txt > abra.txt.mtf 
+    java -cp .:stdlib.jar MoveToFront + <abra.txt.mtf > abra.txt
+
+Error Report: 
+No known errors to report at this time. 

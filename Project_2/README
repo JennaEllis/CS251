@@ -1,0 +1,23 @@
+Jenna Ellis
+
+#Implementation of Brute.java and Fast.java
+Brute was implemented by first reading in each point from the specified file stream and saving the points in an array. In order to generate the collinear sets of points, a set of nested for loops were used. There were 4 loops nested in total in order to "brute" generate all the possible combinations of points that could be collinear. When slopes were compared within the areCollinear methods in Point.java, the points were added to a list, sorted lexigographically, and the saved to print. Before printing the collinear sets, they were also sorted lexicographically according to the first point in each set. 
+
+Fast was implemented the same in reading and saving the points at hand. Then, a nested for loop (of "depth" 2) was used to simulate the sorting of points based off of an angle between each point and a specified origin. The first for loop cycled through each point in the original list to make each the origin for a single iteration. The inner for loop calculated the angles between the current origin and each other point in the list. After the angles were assigned, the arrays.sort method was called, using the comparator object BY_SLOPE_ORDER to properly sort the list according to angles made with the current origin. After sorting, another method is called to identify collinear points that can be identified by having the same angle, and occur consecutively in the arrya they are saved in after sorting. From this, the collinear set is identified, printed, and the process continues for all points read in from StdIn. 
+
+#Compilation and Execution
+The Brute.java class is compiled as:
+javac -classpath .:stdlib.jar Brute.java
+
+And is executed as: 
+java -classpath .:stdlib.jar Brute < <text_file>.txt
+
+
+The Fast.java class is compiled and executed as follows: 
+javac -classpath .:stdlib.jar Fast.java 
+java -classpath .:stdlib.jar Fast < <text_file>.txt
+
+#Errors and Special Conditions
+One special condition with small error handle in Brute.java, in which printing of sets of collinear points is only allowed if there are collinear sets to be printed. In the code, it is specified as an if statement that checks the size of an array list, and then exectutes the printing process. 
+Before implementing this, there was a size specification exception due to not checking the printing process when no collinear points were found. This should not cause any further issues, but should be recognized as a small error handling case. 
+

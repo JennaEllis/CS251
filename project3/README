@@ -1,0 +1,16 @@
+#Project 3
+#Jenna Ellis 
+
+Project can be compiled as given in the file, but to be reiterated: 
+
+Encrypt-> g++ -std=c++11 -O2 -DUSE_<C>_CHARS -o encrypt encrypt.cpp
+Brute-> g++ -std=c++11 -O2 DUSE_<C>_CHARS -o brute brute.cpp
+Symbol-> g++ -std=c++11 -O2 DUSE_<C>_CHARS -o symbol symbol.cpp
+
+Each can be executed as:
+./encrypt <string_to_encrypt> <input_textfile>.txt
+./brute <string_to_encrypt> <input_textfile>.txt
+./symbol <string_to_encrypt> <input_textfile>.txt
+
+Errors:
+None to be reported at this time. 

@@ -1,0 +1,21 @@
+##Jenna Ellis
+
+#To Compile and Run My Code: 
+Code compilation is the same as given in the documents provided at the beginning of the project. That is, javac -classpath .:stdlib.jar <file_name>.java. This format of compilation must be run on all files given that expect to be executed (contain a main method with information desired as output). For example, to compile Percolation.java, the following must be typed into a UNIX terminal: 
+javac -classpath .:stdlib.jar Percolation.java
+
+In order to run the Percolation.java main method, the following is executed via terminal/command line:
+java -classpath .:stdlib.jar Percolation < <file_name>.txt
+
+To run the PercolationVisualizer.java main method, the following is executed:
+java -classpath .:stdlib.jar PercolationVisualizer < <file_name>.txt
+
+To run the PercolationStats.java main method, the following is executed: 
+java -classpath .:stdlib.jar PercolationStats N T <string>
+
+Such that N is an integer that defines the grid length and width for a percolation object, T is an integer that defines the number of repitions to run the grid over for random percolation, and the string can be "fast" or "slow" to run the percolation on either the weighted quick union UF or the Quick Union UF algorithm respectively. 
+
+#Special Conditions and Information about my Code: 
+My code has passed all personally made test cases for both task 1 and task 2, and has performed as expected to with task 3. There should be no timeout, and no commenting or alteration of any code is required in order to operate the expected program components as desired. 
+
+As stated above, I have not provided a makefile/executable script for my project, but rather left the compilation and execution to be done using the commands provided in the prompt documentation given. Using this, the program will run sufficiently. 

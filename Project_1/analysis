@@ -1,0 +1,44 @@
+echo '1'
+javac -cp .:stdlib.jar WeightedQuickUnionUF.java
+echo '2'
+javac -cp .:stdlib.jar QuickUnionUF.java
+echo '3'
+javac -cp .:stdlib.jar Percolation.java
+echo '4'
+javac -cp .:stdlib.jar PercolationQuick.java
+echo '5'
+javac -cp .:stdlib.jar PercolationVisualizer.java
+echo '6'
+javac -cp .:stdlib.jar PercolationStats.java
+echo '7'
+javac -cp .:stdlib.jar VisualizeFrames.java
+echo '8'
+#execution
+
+#Dataset: T=30 N={10,25,50,100,250,500}
+
+echo '\nRunning Analysis for Slow Percolation\n'
+java -cp .:stdlib.jar PercolationStats 10 30 slow
+echo '\n'
+java -cp .:stdlib.jar PercolationStats 25 30 slow
+echo '\n'
+java -cp .:stdlib.jar PercolationStats 50 30 slow
+echo '\n'
+java -cp .:stdlib.jar PercolationStats 100 30 slow
+echo '\n'
+java -cp .:stdlib.jar PercolationStats 250 30 slow
+echo '\n'
+java -cp .:stdlib.jar PercolationStats 500 30 slow
+
+echo '\nRunning Analysis for Fast Percolation\n'
+java -cp .:stdlib.jar PercolationStats 10 30 fast
+echo '\n'
+java -cp .:stdlib.jar PercolationStats 25 30 fast
+echo '\n'
+java -cp .:stdlib.jar PercolationStats 50 30 fast
+echo '\n'
+java -cp .:stdlib.jar PercolationStats 100 30 fast
+echo '\n'
+java -cp .:stdlib.jar PercolationStats 250 30 fast
+echo '\n'
+java -cp .:stdlib.jar PercolationStats 500 30 fast
